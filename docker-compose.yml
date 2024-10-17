@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - '3001:3001'
+    networks:
+      - blocknet
+    depends_on:
+      - mongo
+    restart: always  # Ajouté ici pour redémarrer automatiquement le backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    networks:
+      - blocknet
+    depends_on:
+      - backend
+    restart: always  # Ajouté ici pour redémarrer automatiquement le frontend
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - blocknet
+    restart: always  # Ajouté ici pour redémarrer automatiquement MongoDB
+
+networks:
+  blocknet:
+    driver: bridge

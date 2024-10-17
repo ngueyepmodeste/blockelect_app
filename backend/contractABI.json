@@ -1,0 +1,53 @@
+[
+  {
+    "inputs": [],
+    "name": "submitVote",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getVotes",
+    "outputs": [
+      {
+        "internalType": "tuple[]",
+        "name": "",
+        "type": "tuple[]",
+        "components": [
+          {
+            "internalType": "address",
+            "name": "voter",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "candidate",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "candidate",
+        "type": "string"
+      }
+    ],
+    "name": "VoteSubmitted",
+    "type": "event"
+  }
+]
